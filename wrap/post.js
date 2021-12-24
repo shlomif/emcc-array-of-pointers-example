@@ -27,11 +27,13 @@ function array_demo() {
     return;
 };
 // array_demo();
-    return {
-        array_demo: array_demo,
-        onRuntimeInitialized: () => {
+    Module.array_demo = array_demo;
+        Module.onRuntimeInitialized= () => {
             array_demo();
-        },
+        };
+return Module;
+return {
+        array_demo: array_demo,
         mysqrt: mysqrt,
         mysqrtArray: function (a) {
             var nDataBytes = a.length * Float32Array.BYTES_PER_ELEMENT,
@@ -59,7 +61,7 @@ function array_demo() {
         deleteMyClass: deleteMyClass,
         setMyClassValue: setMyClassValue,
         getMyClassAnswer: getMyClassAnswer
-    };
-
+    }
 }
-})();
+}));
+//this.exports.initialize();
