@@ -28,9 +28,9 @@ mydef([(supported ? "./dist/mysqrt" :
 // mydef([(false ? "libfreecell-solver.min" :
     "libfreecell-solver-asm")], function(M) {
         M.Module.onRuntimeInitialized=(()=>{
-            console.log("foo\n");
-        M.array_demo();
-            console.log("end of onRuntimeInitialized\n");
+            console.log("start of onRuntimeInitialized(); before calling array_demo()\n");
+            M.array_demo();
+            console.log("end of onRuntimeInitializedi()\n");
         });
     return M;
 });
