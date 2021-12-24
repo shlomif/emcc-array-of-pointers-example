@@ -11,10 +11,13 @@ if (true) {
     let fc_solve_allocate_i8 = (p1) => {
         return Module.allocate(p1, "i8", Module.ALLOC_STACK);
     };
+    let fc_solve_Pointer_stringify = (ptr) => {
+        return Module.UTF8ToString(ptr, 10000);
+    };
 function array_demo() {
     let arr = gen_array();
-    return;
     array_set(arr, 0, "value 0x0");
+    console.log("arr0 ="+fc_solve_Pointer_stringify(Module.getValue(arr, '*')));
     array_print(arr, 0);
     const ptr_width = 4;
                 const str_ptr = fc_solve_allocate_i8(
