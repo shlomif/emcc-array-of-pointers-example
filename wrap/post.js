@@ -28,6 +28,7 @@ function array_demo() {
 };
 // array_demo();
     return {
+        Module: Module,
         array_demo: array_demo,
         onRuntimeInitialized: () => {
             array_demo();
