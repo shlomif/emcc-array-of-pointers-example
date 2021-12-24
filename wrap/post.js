@@ -1,4 +1,3 @@
-}));
 if (true) {
     var mysqrt = Module.cwrap('mysqrtC','number',['number']),
         mysqrtArray = Module.cwrap('mysqrtArrayC','undefined',['number','number','number']),
@@ -28,13 +27,11 @@ function array_demo() {
     return;
 };
 // array_demo();
-    Module.array_demo = array_demo;
-        Module.onRuntimeInitialized= () => {
-            array_demo();
-        };
-return Module;
-return {
+    return {
         array_demo: array_demo,
+        onRuntimeInitialized: () => {
+            array_demo();
+        },
         mysqrt: mysqrt,
         mysqrtArray: function (a) {
             var nDataBytes = a.length * Float32Array.BYTES_PER_ELEMENT,
@@ -62,6 +59,7 @@ return {
         deleteMyClass: deleteMyClass,
         setMyClassValue: setMyClassValue,
         getMyClassAnswer: getMyClassAnswer
-    }
+    };
+
 }
-//this.exports.initialize();
+}));
