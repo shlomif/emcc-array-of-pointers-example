@@ -1,4 +1,4 @@
-(function (root, factory) {
+/*(function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         define([], factory);
     } else if (typeof module === 'object' && module.exports) {
@@ -6,4 +6,5 @@
     } else {
         root.Mysqrt = factory();
     }
-}(this, function () {
+}(this, function () {*/
+this.exports = (function(){
