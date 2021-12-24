@@ -1,11 +1,6 @@
-# emcc-example
+# Array of strings example
 
-Showing how to compile c++ project into javascript library using emscripten.
-
-## Array of strings example
-
-@shlomif modified this repo to contain an array of strings (or pointers in
-general example).
+[Shlomi Fish](https://github.com/shlomif/) modified this repo to contain an emcc exampleof interfacing with an array of strings (or an array of C pointers in general).
 
 The interesting files are:
 
@@ -13,6 +8,10 @@ The interesting files are:
 * [./wrap/post.js](./wrap/post.js)
 * [h.js](./h.js)
 * [build.sh](./build.sh)
+
+# emcc-example
+
+Showing how to compile c++ project into javascript library using emscripten.
 
 ### Features
 
