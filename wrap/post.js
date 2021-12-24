@@ -1,3 +1,4 @@
+}));
 if (true) {
     var mysqrt = Module.cwrap('mysqrtC','number',['number']),
         mysqrtArray = Module.cwrap('mysqrtArrayC','undefined',['number','number','number']),
@@ -63,5 +64,4 @@ return {
         getMyClassAnswer: getMyClassAnswer
     }
 }
-}));
 //this.exports.initialize();
