@@ -2,6 +2,18 @@
 
 Showing how to compile c++ project into javascript library using emscripten.
 
+## Array of strings example
+
+@shlomif modified this repo to contain an array of strings (or pointers in
+general example).
+
+The interesting files are:
+
+* [c_array_strings.c](./src/c_array_strings.c)
+* [./wrap/post.js](./wrap/post.js)
+* [h.js](./h.js)
+* [build.sh](./build.sh)
+
 ### Features
 
 * Export a function <code>mysqrt</code>
