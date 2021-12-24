@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 #define LEN 20
@@ -14,4 +15,9 @@ char * * gen_array(void)
 void array_set(char **arr, int i, char*val)
 {
     arr[i] = strdup(val);
+}
+
+void array_print(char **arr, int i)
+{
+    printf("arr[%d] = %s\n", i, arr[i]);
 }
