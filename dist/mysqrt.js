@@ -4983,7 +4983,13 @@ var _malloc = Module["_malloc"] = createExportWrapper("malloc");
 var _array_set = Module["_array_set"] = createExportWrapper("array_set");
 
 /** @type {function(...*):?} */
+var _free = Module["_free"] = createExportWrapper("free");
+
+/** @type {function(...*):?} */
 var _array_print = Module["_array_print"] = createExportWrapper("array_print");
+
+/** @type {function(...*):?} */
+var _array_free = Module["_array_free"] = createExportWrapper("array_free");
 
 /** @type {function(...*):?} */
 var _mysqrtC = Module["_mysqrtC"] = createExportWrapper("mysqrtC");
@@ -5020,9 +5026,6 @@ var stackRestore = Module["stackRestore"] = createExportWrapper("stackRestore");
 
 /** @type {function(...*):?} */
 var stackAlloc = Module["stackAlloc"] = createExportWrapper("stackAlloc");
-
-/** @type {function(...*):?} */
-var _free = Module["_free"] = createExportWrapper("free");
 
 /** @type {function(...*):?} */
 var ___set_stack_limit = Module["___set_stack_limit"] = createExportWrapper("__set_stack_limit");
@@ -5435,6 +5438,7 @@ if (true) {
         setMyClassValue = Module.cwrap('setMyClassValueC','undefined',['number','number']),
         getMyClassAnswer = Module.cwrap('getMyClassAnswerC','number',['number']);
     let gen_array = Module.cwrap('gen_array','number',[]);
+    let array_free = Module.cwrap('array_free','undefined', ['number']);
     let array_set = Module.cwrap('array_set','undefined',['number', 'number','string']);
     let array_print = Module.cwrap('array_print','undefined',['number', 'number']);
     let fc_solve_allocate_i8 = (p1) => {
@@ -5444,7 +5448,7 @@ if (true) {
         return Module.UTF8ToString(ptr, 10000);
     };
     function array_demo() {
-        let arr = gen_array();
+        const arr = gen_array();
         array_set(arr, 0, "value zero");
         console.log("arr0 = " + fc_solve_Pointer_stringify(Module.getValue(arr, '*')));
         array_print(arr, 0);
@@ -5456,6 +5460,7 @@ if (true) {
         );
         Module.setValue(arr + ptr_width*3, str_ptr, "*")
         array_print(arr, 3);
+        array_free(arr);
         return;
     };
 // array_demo();

@@ -9,6 +9,8 @@ The interesting files are:
 * [h.js](./h.js)
 * [build.sh](./build.sh)
 
+It is based on https://github.com/ZuchaoWang/emcc-example . Thanks!
+
 # emcc-example
 
 Showing how to compile c++ project into javascript library using emscripten.
