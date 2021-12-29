@@ -5431,20 +5431,20 @@ run();
 
 
 if (true) {
-    var mysqrt = Module.cwrap('mysqrtC','number',['number']),
+    const mysqrt = Module.cwrap('mysqrtC','number',['number']),
         mysqrtArray = Module.cwrap('mysqrtArrayC','undefined',['number','number','number']),
         createMyClass = Module.cwrap('createMyClassC','number',[]),
         deleteMyClass = Module.cwrap('deleteMyClassC','undefined',['number']),
         setMyClassValue = Module.cwrap('setMyClassValueC','undefined',['number','number']),
         getMyClassAnswer = Module.cwrap('getMyClassAnswerC','number',['number']);
-    let gen_array = Module.cwrap('gen_array','number',[]);
-    let array_free = Module.cwrap('array_free','undefined', ['number']);
-    let array_set = Module.cwrap('array_set','undefined',['number', 'number','string']);
-    let array_print = Module.cwrap('array_print','undefined',['number', 'number']);
-    let fc_solve_allocate_i8 = (p1) => {
+    const gen_array = Module.cwrap('gen_array','number',[]);
+    const array_free = Module.cwrap('array_free','undefined', ['number']);
+    const array_set = Module.cwrap('array_set','undefined',['number', 'number','string']);
+    const array_print = Module.cwrap('array_print','undefined',['number', 'number']);
+    const fc_solve_allocate_i8 = (p1) => {
         return Module.allocate(p1, "i8", Module.ALLOC_STACK);
     };
-    let fc_solve_Pointer_stringify = (ptr) => {
+    const fc_solve_Pointer_stringify = (ptr) => {
         return Module.UTF8ToString(ptr, 10000);
     };
     function array_demo() {
@@ -5472,19 +5472,18 @@ if (true) {
         },
         mysqrt: mysqrt,
         mysqrtArray: function (a) {
-            var nDataBytes = a.length * Float32Array.BYTES_PER_ELEMENT,
+            const nDataBytes = a.length * Float32Array.BYTES_PER_ELEMENT,
                 aHeap = Module._malloc(nDataBytes),
                 bHeap = Module._malloc(nDataBytes),
-                b = new Array(a.length),
-                i;
+                b = new Array(a.length);
 
-            for (i = 0; i < a.length; i++) {
+            for (let i = 0; i < a.length; i++) {
                 Module.setValue(aHeap + i * Float32Array.BYTES_PER_ELEMENT, a[i], 'float');
             }
 
             mysqrtArray(a.length, aHeap, bHeap);
 
-            for (i = 0; i < a.length; i++) {
+            for (let i = 0; i < a.length; i++) {
                 b[i] = Module.getValue(bHeap + i * Float32Array.BYTES_PER_ELEMENT, 'float');
             }
 
