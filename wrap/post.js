@@ -10,7 +10,7 @@ if (true) {
     const array_set = Module.cwrap('array_set','undefined',['number', 'number','string']);
     const array_print = Module.cwrap('array_print','undefined',['number', 'number']);
     const fc_solve_allocate_i8 = (p1) => {
-        return Module.allocate(p1, "i8", Module.ALLOC_STACK);
+        return Module.allocate(p1, Module.ALLOC_STACK);
     };
     const fc_solve_Pointer_stringify = (ptr) => {
         return Module.UTF8ToString(ptr, 10000);
